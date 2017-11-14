@@ -1,7 +1,7 @@
 const isObject = require('../../../src/validators/is-object');
 
 describe('is object', () => {
-  it('resolves if number', () => {
+  it('resolves if object', () => {
     const params = {
       name: {
         first: 'jacob',
@@ -14,7 +14,7 @@ describe('is object', () => {
     return expect(isObject('name', params)).resolves.toEqual(undefined);
   });
 
-  it('rejects if not number', () => {
+  it('rejects if not object', () => {
     const params = {
       name: 'jacob bass',
     };

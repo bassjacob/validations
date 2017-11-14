@@ -17,7 +17,7 @@ describe('deep equal', () => {
     ).resolves.toEqual(undefined);
   });
 
-  it('resolves if not deep equal', () => {
+  it('rejects if not deep equal', () => {
     const params = {
       hi: {
         hello: 'there1',

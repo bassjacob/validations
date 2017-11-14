@@ -1,6 +1,6 @@
 const greaterThanOrEqual = require('../../../src/validators/greater-than-or-equal');
 
-describe('equal', () => {
+describe('greater than or equal', () => {
   it('resolves if greater', () => {
     const params = {
       amount: 10,

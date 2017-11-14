@@ -11,7 +11,7 @@ describe('equal', () => {
     return expect(equal('there')('hi', params)).resolves.toEqual(undefined);
   });
 
-  it('resolves if not equal', () => {
+  it('rejects if not equal', () => {
     const params = {
       hi: {
         hello: 'there',

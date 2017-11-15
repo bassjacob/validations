@@ -37,16 +37,16 @@ Using Maccabee validatorFactory & built in validators
   });
 
   const validUser = {
-    firstName: 'Bill',
-    lastName: 'Gates',
-    admin: false,
+    firstName: 'Barack',
+    lastName: 'Obama',
+    admin: true,
   };
 
   const invalidUser = {
-    firstName: 'Not',
-    lastName: 'Bill',
-    admin: 'true',
-    age: 'nine',
+    firstName: 'Donald',
+    lastName: 'Trump',
+    admin: 'false',
+    age: 'covfefe',
   };
 
   try {
@@ -54,9 +54,9 @@ Using Maccabee validatorFactory & built in validators
     console.log(JSON.stringify(res, null, 2));
     /*
     {
-      "firstName": "Bill",
-      "lastName": "Gates",
-      "admin": false
+      "firstName": "Barack",
+      "lastName": "Obama",
+      "admin": true
     }
     */
   } catch (ex) {
@@ -81,8 +81,8 @@ Using Maccabee validatorFactory & built in validators
         ],
         "admin": [
           {
-            "expected": "too be a bool",
-            "received": "true",
+            "expected": "to be a bool",
+            "received": "false",
             "key": "admin"
           }
         ]

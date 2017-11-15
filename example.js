@@ -18,16 +18,16 @@ const example = async () => {
   });
 
   const validUser = {
-    firstName: 'Barack',
-    lastName: 'Obama',
+    firstName: 'John',
+    lastName: 'McValiduser',
     admin: true,
   };
 
   const invalidUser = {
-    firstName: 'Donald',
-    lastName: 'Trump',
+    firstName: 'Invalid',
+    lastName: 'Invalidface',
     admin: 'false',
-    age: 'covfefe',
+    age: 'a literal ferry',
   };
 
   try {
@@ -35,8 +35,8 @@ const example = async () => {
     console.log(JSON.stringify(res, null, 2));
     /*
     {
-      "firstName": "Barack",
-      "lastName": "Obama",
+      "firstName": "John",
+      "lastName": "McValiduser",
       "admin": true
     }
     */

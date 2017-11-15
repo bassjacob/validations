@@ -24,6 +24,8 @@ const oneOf = require('./one-of');
 
 const matches = require('./matches');
 
+const sequelize = require('./sequelize');
+
 const validators = {
   equality: {
     deepEqual,
@@ -56,6 +58,9 @@ const validators = {
   },
   string: {
     matches,
+  },
+  custom: {
+    sequelize,
   },
 };
 

@@ -1,4 +1,4 @@
-const { UUID } = require('../../../src/matchers');
+const { UUID4 } = require('../../../src/matchers');
 const matches = require('../../../src/validators/matches');
 
 describe('matches', () => {
@@ -9,7 +9,7 @@ describe('matches', () => {
 
     expect.assertions(1);
 
-    return expect(matches(UUID)('id', params)).resolves.toEqual(undefined);
+    return expect(matches(UUID4)('id', params)).resolves.toEqual(undefined);
   });
 
   it('rejects if not matches', () => {
@@ -19,7 +19,7 @@ describe('matches', () => {
 
     expect.assertions(1);
 
-    return expect(matches(UUID)('id', params)).rejects.toEqual({
+    return expect(matches(UUID4)('id', params)).rejects.toEqual({
       expected: 'matching regex',
       key: 'id',
       received: 'did not match regex',

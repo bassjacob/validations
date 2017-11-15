@@ -37,16 +37,16 @@ Using Maccabee validatorFactory & built in validators
   });
 
   const validUser = {
-    firstName: 'Barack',
-    lastName: 'Obama',
+    firstName: 'John',
+    lastName: 'McValidUser',
     admin: true,
   };
 
   const invalidUser = {
-    firstName: 'Donald',
-    lastName: 'Trump',
+    firstName: 'Invalid',
+    lastName: 'Invalidface',
     admin: 'false',
-    age: 'covfefe',
+    age: 'a literal ferry',
   };
 
   try {
@@ -54,8 +54,8 @@ Using Maccabee validatorFactory & built in validators
     console.log(JSON.stringify(res, null, 2));
     /*
     {
-      "firstName": "Barack",
-      "lastName": "Obama",
+      "firstName": "John",
+      "lastName": "McValidface",
       "admin": true
     }
     */

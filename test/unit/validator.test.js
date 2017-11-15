@@ -1,4 +1,4 @@
-const { present } = require('../../src/validators/general');
+const isPresent = require('../../src/validators/is-present');
 const validatorFactory = require('../../src/validator');
 
 describe('validator', () => {
@@ -11,7 +11,7 @@ describe('validator', () => {
     const params = {};
 
     const map = {
-      key1: [present()],
+      key1: [isPresent],
     };
 
     const runner = validatorFactory({ check: map });
@@ -34,7 +34,7 @@ describe('validator', () => {
     };
 
     const map = () => ({
-      key1: [present()],
+      key1: [isPresent],
     });
 
     const runner = validatorFactory({ check: map });

@@ -18,16 +18,16 @@ const example = async () => {
   });
 
   const validUser = {
-    firstName: 'Bill',
-    lastName: 'Gates',
-    admin: false,
+    firstName: 'Barack',
+    lastName: 'Obama',
+    admin: true,
   };
 
   const invalidUser = {
-    firstName: 'Not',
-    lastName: 'Bill',
-    admin: 'true',
-    age: 'nine',
+    firstName: 'Donald',
+    lastName: 'Trump',
+    admin: 'false',
+    age: 'covfefe',
   };
 
   try {
@@ -35,9 +35,9 @@ const example = async () => {
     console.log(JSON.stringify(res, null, 2));
     /*
     {
-      "firstName": "Bill",
-      "lastName": "Gates",
-      "admin": false
+      "firstName": "Barack",
+      "lastName": "Obama",
+      "admin": true
     }
     */
   } catch (ex) {
@@ -62,8 +62,8 @@ const example = async () => {
         ],
         "admin": [
           {
-            "expected": "too be a bool",
-            "received": "true",
+            "expected": "to be a bool",
+            "received": "false",
             "key": "admin"
           }
         ]

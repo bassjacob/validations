@@ -19,7 +19,7 @@ describe('is boolean', () => {
     expect.assertions(1);
 
     return expect(isBoolean('active', params)).rejects.toEqual({
-      expected: 'too be a bool',
+      expected: 'to be a bool',
       key: 'active',
       received: undefined,
     });

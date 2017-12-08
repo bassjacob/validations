@@ -1,5 +1,4 @@
 {
-  "prettier.eslintIntegration": true,
   "editor.formatOnSave": true,
-  "prettier.singleQuote": true
+  "eslint.autoFixOnSave": true
 }

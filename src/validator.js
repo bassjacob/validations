@@ -7,16 +7,27 @@
 function runValidator(params, instance) {
   return ({ key, validator }) => {
     try {
-      return validator(key, params, instance).catch(error => ({ key, error }));
+      return validator(key, params, instance).catch(error => ({
+        key,
+        error,
+      }));
     } catch (e) {
-      return Promise.resolve({ key, error: e.message });
+      return Promise.resolve({
+        key,
+        error: e.message,
+      });
     }
   };
 }
 
 function reducer(map) {
   return (acc, key) =>
-    acc.concat(map[key].map(validator => ({ key, validator })));
+    acc.concat(
+      map[key].map(validator => ({
+        key,
+        validator,
+      }))
+    );
 }
 
 function calculateErrors(results) {
@@ -30,7 +41,7 @@ function calculateErrors(results) {
   }, {});
 }
 
-function handleResults(results, params, instance, merge) {
+function handleResults(results, params, instance, merge, preVals) {
   const errors = calculateErrors(results);
 
   if (Object.keys(errors).length > 0) {
@@ -40,7 +51,7 @@ function handleResults(results, params, instance, merge) {
     throw error;
   }
 
-  return merge(params, instance);
+  return merge(params, instance, preVals);
 }
 
 function defaultMerge(params, instance) {
@@ -66,7 +77,7 @@ function validatorFactory({
       Object.keys(validators)
         .reduce(reducer(validators), [])
         .map(runner)
-    ).then(results => handleResults(results, params, instance, post));
+    ).then(results => handleResults(results, richParams, instance, post));
   };
 }
 

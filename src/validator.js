@@ -41,7 +41,7 @@ function calculateErrors(results) {
   }, {});
 }
 
-function handleResults(results, params, instance, merge, preVals) {
+function handleResults(results, params, instance, merge) {
   const errors = calculateErrors(results);
 
   if (Object.keys(errors).length > 0) {
@@ -51,7 +51,7 @@ function handleResults(results, params, instance, merge, preVals) {
     throw error;
   }
 
-  return merge(params, instance, preVals);
+  return merge(params, instance);
 }
 
 function defaultMerge(params, instance) {

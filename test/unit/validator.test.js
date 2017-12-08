@@ -14,7 +14,9 @@ describe('validator', () => {
       key1: [isPresent],
     };
 
-    const runner = validatorFactory({ check: map });
+    const runner = validatorFactory({
+      check: map,
+    });
 
     expect.assertions(1);
 
@@ -37,13 +39,50 @@ describe('validator', () => {
       key1: [isPresent],
     });
 
-    const runner = validatorFactory({ check: map });
+    const runner = validatorFactory({
+      check: map,
+    });
 
     expect.assertions(2);
 
-    return runner(params, instance, { length: 3 }).then(value => {
+    return runner(params, instance, {
+      length: 3,
+    }).then(value => {
       expect(value.key1).toEqual(4);
       expect(value.key2).toEqual('value2');
+    });
+  });
+
+  it('respond with pre vals', () => {
+    const instance = {
+      key1: 1,
+      key2: 'value2',
+    };
+
+    const params = {
+      key1: 4,
+    };
+
+    const map = () => ({
+      key1: [isPresent],
+    });
+
+    const pre = () => ({
+      key1: 1,
+      hello: 'hey',
+    });
+    const runner = validatorFactory({
+      check: map,
+      pre,
+    });
+
+    // expect.assertions(2);
+
+    return runner(params, instance, {
+      length: 3,
+    }).then(value => {
+      expect(value.key1).toEqual(1);
+      expect(value.hello).toEqual('hey');
     });
   });
 });

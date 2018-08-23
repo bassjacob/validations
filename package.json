@@ -5,8 +5,8 @@
   "license": "MIT",
   "scripts": {
     "precommit": "lint-staged",
-    "test": "jest",
-    "lint": "eslint --fix src test"
+    "test": "yarn jest",
+    "lint": "yarn eslint --fix src test"
   },
   "devDependencies": {
     "eslint": "^4.6.1",
@@ -21,7 +21,7 @@
   },
   "lint-staged": {
     "*.js": [
-      "eslint --fix",
+      "yarn eslint --fix",
       "git add"
     ]
   }

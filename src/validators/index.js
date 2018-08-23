@@ -15,6 +15,8 @@ const isString = require('./is-string');
 const isObject = require('./is-object');
 const isPresent = require('./is-present');
 const isSame = require('./is-same');
+const isHour = require('./is-hour');
+const isMinute = require('./is-minute');
 
 const immutable = require('./immutable');
 const each = require('./each');
@@ -46,6 +48,8 @@ const validators = {
     isPresent,
     isSame,
     isDate,
+    isHour,
+    isMinute,
   },
   iterators: {
     each,

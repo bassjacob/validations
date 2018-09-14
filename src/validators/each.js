@@ -1,14 +1,14 @@
 const isArray = require('./is-array');
 
-function each(f) {
+function each(f, { errorMessage = null } = {}) {
   return (k /* : string */, params /* : Promise */) =>
     isArray(k, params)
       .then(() => Promise.all(params[k].map(f)))
       .then(() => Promise.resolve())
       .catch(() =>
         Promise.reject({
-          expected: 'for each element to satisfy the function',
-          received: 'some did not',
+          expected: errorMessage || 'for each element to be valid',
+          received: params[k],
           key: k,
         })
       );
